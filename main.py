@@ -15,7 +15,6 @@ train_data = clean_data(titanic_df)
 train_data = feature_engineering(train_data)
 
 # Model and training
-relevant_features = ['pclass', 'sex', 'age', 'family_size', 'fare']
-X_train, X_val, y_train, y_val = train_test_split(train_data[relevant_features], train_data['survived'], test_size=0.2)
+X_train, X_val, y_train, y_val = train_test_split(train_data.drop('survived', axis=1), train_data['survived'], test_size=0.2)
 model = grid_search_logistic_regression(X_train, y_train)
 evaluate_model(model, X_val, y_val)

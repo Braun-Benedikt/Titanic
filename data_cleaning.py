@@ -1,4 +1,3 @@
-import pandas as pd
 from sklearn.impute import SimpleImputer
 
 def clean_data(train_data):
