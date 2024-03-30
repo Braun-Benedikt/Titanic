@@ -8,6 +8,7 @@ def feature_engineering(train_data):
     # Encoding
     label_encoder = LabelEncoder()
     train_data['sex'] = label_encoder.fit_transform(train_data['sex'])
+    # Scaling
     scaler = StandardScaler()
     scaled_data = scaler.fit_transform(train_data.drop('survived', axis=1))
     scaled_data = pd.DataFrame(scaled_data, columns=train_data.drop('survived', axis=1).columns)
